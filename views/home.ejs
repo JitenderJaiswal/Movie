@@ -1,22 +1,20 @@
 <html>
 <form action="/search" id="form" method="GET">
-Title:<input type="text" name="title"></input>
+Search:<input type="text" name="s"></input>
+Year:<input type="text" name="y"></input>
 <input type="submit" value="Search Movie">
 </form>
 
 <div><%if(locals.search){%>
     <ul><%if(Array.isArray(search)){
             for(s of search){%>
-            <li><img src="<%=search.Poster %>" width="50" height="50"><br>
+            <li>
                 <%=s.Title %><br>
                 <%=s.Year %><br>
+                <%=s.description %><br>
             </li>
-        <%}}else{%>
-        <li><img src="<%=search.Poster %>" width="50" height="50"><br>
-            <%=search.Title %><br>
-            <%=search.Year %><br>
-        </li>
-        <%}%>
+       
+        <%}}%>
     </ul>
 <%}%>
 </div>
