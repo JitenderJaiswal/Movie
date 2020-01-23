@@ -1,17 +1,34 @@
 <html>
 <form action="/search" id="form" method="GET">
-Search:<input type="text" name="s"></input>
-Year:<input type="text" name="y"></input>
-<input type="submit" value="Search Movie">
+      Search:<input type="text" name="s"></input>
+             <input type="submit" value="Search Movie">
+</form>
+<form action="/movies" id="form" method="GET">
+          ID:<input type="text" name="id"></input>
+             <input type="submit" value="Search Movie By ID">
 </form>
 
+<div><%if(locals.movies){%>
+    <ul>
+            <li><img src="<%=movies.image %>" width="100" height="100"><br>
+                Title:<%=movies.title %><br>
+                Description:<%=movies.description %><br>
+                Duration:<%=movies.duration%><br>
+                Run:<%=movies.Runtime %><br>
+                Ratings:<%=movies.Ratings[0].userrating%>,Source:<%=movies.Ratings[0].source%><br>
+                Director:<%=movies.Cast[0]%>,Writer:<%=movies.Cast[1]%>,Actors:<%=movies.Cast[2]%><br>
+            </li>
+    </ul>
+<%}%>
+</div>
 <div><%if(locals.search){%>
     <ul><%if(Array.isArray(search)){
             for(s of search){%>
-            <li>
-                <%=s.Title %><br>
-                <%=s.Year %><br>
-                <%=s.description %><br>
+            <li><img src="<%=search.image %>" width="100" height="100"><br>
+                Title:<%=s.title %><br>
+                Year:<%=s.productionYear %><br>
+                Type:<%=s.type%><br>
+               <%if(s.description){%> description:<%=s.description%><%}%>
             </li>
        
         <%}}%>
