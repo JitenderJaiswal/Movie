@@ -39,7 +39,7 @@ module.exports.search=async function(req,res){
                       let response=await fetch(url);
                       let json=await response.json();
                       let flag;
-
+                         if(json.Search)
                         for(i of json.Search)
                        {   flag=false;
                          for(j of jsonDatas)
