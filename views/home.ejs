@@ -11,12 +11,11 @@
 <div><%if(locals.movies){%>
     <ul>
             <li><img src="<%=movies.image %>" width="100" height="100"><br>
-                Title:<%=movies.title %><br>
-                Description:<%=movies.description %><br>
-                Duration:<%=movies.duration%><br>
-                Run:<%=movies.Runtime %><br>
-                Ratings:<%=movies.Ratings[0].userrating%>,Source:<%=movies.Ratings[0].source%><br>
-                Director:<%=movies.Cast[0]%>,Writer:<%=movies.Cast[1]%>,Actors:<%=movies.Cast[2]%><br>
+                <b>Title:</b><%=movies.title %><br>
+                <b>Description:</b><%=movies.description %><br>
+                <b>Duration:</b><%=movies.duration%><br>
+                <b>Ratings:</b><%=movies.Ratings[0].userrating%>,<b>Source:</b><%=movies.Ratings[0].source%><br>
+                <b>Director:</b><%=movies.Cast[0]%>,<b>Writer:</b><%=movies.Cast[1]%>,<b>Actors:</b><%=movies.Cast[2]%><br>
             </li>
     </ul>
 <%}%>
@@ -24,11 +23,11 @@
 <div><%if(locals.search){%>
     <ul><%if(Array.isArray(search)){
             for(s of search){%>
-            <li><img src="<%=search.image %>" width="100" height="100"><br>
-                Title:<%=s.title %><br>
-                Year:<%=s.productionYear %><br>
-                Type:<%=s.type%><br>
-               <%if(s.description){%> description:<%=s.description%><%}%>
+            <li><img src="<%=s.image %>" width="100" height="100"><br>
+                <b>Title:</b><%=s.title %><br>
+                <b>Year:</b><%=s.productionYear %><br>
+                <b>Type:</b><%=s.type%><br>
+               <%if(s.description){%> <b>description:</b><%=s.description%><%}%>
             </li>
        
         <%}}%>

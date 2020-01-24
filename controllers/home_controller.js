@@ -23,7 +23,8 @@ module.exports.movies=async function(req, res){
                        let merge;
                        if(id==jsonData.imdbId)
                         merge={...jsonData,...a};
-                    
+                      else
+                      return  res.render('home',{movies:a});                   
                      return  res.render('home',{movies:merge});
                     }catch(err){
                       console.log('Error', err);return;}  
@@ -39,7 +40,7 @@ module.exports.search=async function(req,res){
                       let response=await fetch(url);
                       let json=await response.json();
                       let flag;
-                        if(json.Search)
+                         if(json.Search)
                         for(i of json.Search)
                        {   flag=false;
                         for(j of jsonDatas)
