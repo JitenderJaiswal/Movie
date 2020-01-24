@@ -39,11 +39,11 @@ module.exports.search=async function(req,res){
                       let response=await fetch(url);
                       let json=await response.json();
                       let flag;
-
+                        if(json.Search)
                         for(i of json.Search)
                        {   flag=false;
-                         for(j of jsonDatas)
-                         {
+                        for(j of jsonDatas)
+                        {
                            if(i.Title.toLowerCase()==j.title.toLowerCase())
                           { let a={"title":i.Title,"productionYear":i.Year,"image":i.Poster,"type":i.Type};
                             let merge={...j,...a};
